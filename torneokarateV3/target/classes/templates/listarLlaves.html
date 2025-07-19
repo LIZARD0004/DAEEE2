@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuentros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div layout:fragment="contenido_dinamico" class="container my-5">
+
+    <h2 class="mb-4">Enfrentamientos Generados</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Ronda</th>
+            <th>Karateca 1</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Rango</th>
+            <th>VS</th>
+            <th>Karateca 2</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Rango</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="llave : ${llaves}">
+            <td th:text="${llave.ronda}"></td>
+
+            <!-- Karateca 1 -->
+            <td th:text="${llave.idKarateca1.nombreCompleto}"></td>
+            <td th:text="${llave.idKarateca1.edad}"></td>
+            <td th:text="${llave.idKarateca1.peso}"></td>
+            <td th:text="${llave.idKarateca1.rango}"></td>
+
+            <td class="text-center">VS</td>
+
+            <!-- Karateca 2 -->
+            <td th:text="${llave.idKarateca2.nombreCompleto}"></td>
+            <td th:text="${llave.idKarateca2.edad}"></td>
+            <td th:text="${llave.idKarateca2.peso}"></td>
+            <td th:text="${llave.idKarateca2.rango}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/" class="btn btn-secondary">Volver</a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
